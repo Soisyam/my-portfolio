@@ -50,11 +50,7 @@ const Projects: React.FC = () => {
       description: "A Python-based script for automating messaging tasks, demonstrating backend scripting capabilities.",
       technologies: ["Python", "Selenium (or similar)", "Twilio (or similar)"],
     },
-    {
-      title: "IQM Website with Belle Atom",
-      description: "Developed a dynamic website for IQM, leveraging modern web technologies.",
-      technologies: ["HTML", "CSS", "JavaScript", "GSAP"],
-    },
+    
     // Add more projects here
   ];
 
