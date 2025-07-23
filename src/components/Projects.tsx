@@ -1,14 +1,13 @@
 import React from 'react';
 
-// Define the types for the props that ProjectCard will receive
 interface ProjectCardProps {
   title: string;
   description: string;
   technologies: string[];
+  githubUrl: string;
 }
 
-// ProjectCard component - CORRECTLY destructures 'title', 'description', and 'technologies' from its props
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, technologies }) => { // <--- Fix is here!
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, technologies, githubUrl }) => {
   return (
     <div className="bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6 flex flex-col justify-between h-full">
       <div>
@@ -24,34 +23,40 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, technolog
           ))}
         </div>
         <div className="mt-6">
-          {/* You can add a 'View Details' button or link here if needed */}
-          {/* <a href="#" className="text-yellow-400 hover:text-yellow-300 transition-colors">View Details</a> */}
+          <a
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-yellow-600 hover:bg-yellow-500 text-white font-semibold px-4 py-2 rounded transition"
+          >
+            View Code
+          </a>
         </div>
       </div>
     </div>
   );
 };
 
-// Projects component - it uses the ProjectCard component and passes props to it
 const Projects: React.FC = () => {
   const projects = [
     {
       title: "Todo List Application",
       description: "A simple and intuitive task management application to help users keep track of their daily tasks.",
       technologies: ["React", "TypeScript", "Tailwind CSS"],
+      githubUrl: "https://github.com/Soisyam/todo-app.git",
     },
     {
       title: "Tic-Tac-Toe Game",
       description: "A classic Tic-Tac-Toe game implemented with interactive UI, allowing two players to compete.",
       technologies: ["React", "JavaScript", "CSS"],
+      githubUrl: "https://github.com/Soisyam/TicTacToe.git",
     },
     {
       title: "Automated Messaging System",
       description: "A Python-based script for automating messaging tasks, demonstrating backend scripting capabilities.",
       technologies: ["Python", "Selenium (or similar)", "Twilio (or similar)"],
+      githubUrl: "https://github.com/Soisyam/automated-messaging.git",
     },
-    
-    // Add more projects here
   ];
 
   return (
