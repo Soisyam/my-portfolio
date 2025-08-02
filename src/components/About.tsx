@@ -6,13 +6,13 @@ const About: React.FC = () => {
       <h2 className="text-4xl font-bold mb-12">About Me</h2>
       <div className="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed">
         <p className="mb-4">
-          I'm Soyam, a passionate and driven frontend devith a ke   en eye for creating intuitive and visually appealing web experiences. My journey into the world of web development began with a fascination for how digital interfaces come to life.eloper w
+          I'm Soyam, a passionate Software Engineer who enjoys exploring frontend development and the exciting world of Machine Learning. My journey into tech started with a fascination for how modern digital experiences are built and how intelligent systems can enhance them.
         </p>
         <p className="mb-4">
-          I specialize in building responsive and dynamic web applications using modern technologies like React, TypeScript, and Tailwind CSS. I enjoy turning complex problems into simple, beautiful, and functional designs.
+          I love crafting responsive and visually engaging web applications using technologies like React, TypeScript, and Tailwind CSS. I'm also curious about how data-driven approaches can improve interactivity and personalization in web experiences.
         </p>
         <p>
-          Beyond coding, I'm constantly exploring new technologies and design patterns to stay at the forefront of the industry. I believe in continuous learning and always strive to improve my craft.
+          Outside of coding, I enjoy diving into new technologies and experimenting with design patterns. I'm a strong believer in continuous learning and always strive to sharpen my skills—both in development and emerging tech like AI and ML.
         </p>
       </div>
     </section>
