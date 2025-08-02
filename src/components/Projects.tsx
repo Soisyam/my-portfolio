@@ -1,4 +1,7 @@
-import React from 'react';
+// src/components/Projects.tsx
+import React from "react";
+import { motion } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 interface ProjectCardProps {
   title: string;
@@ -16,13 +19,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   liveUrl,
 }) => {
   return (
-    <div className="bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6 flex flex-col justify-between h-full">
+    <motion.div
+      className="bg-gray-800 rounded-xl shadow-md p-6 flex flex-col justify-between hover:shadow-xl transition-all duration-300 hover:scale-[1.03]"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div>
-        <h3 className="text-2xl font-semibold mb-3 text-white">{title}</h3>
-        <p className="text-gray-400 mb-4 text-lg leading-relaxed">{description}</p>
-      </div>
-      <div>
-        <div className="flex flex-wrap gap-2 mt-4">
+        <h3 className="text-2xl font-bold mb-3 text-white">{title}</h3>
+        <p className="text-gray-400 mb-4 text-md leading-relaxed">{description}</p>
+        <div className="flex flex-wrap gap-2 mt-2">
           {technologies.map((tech, index) => (
             <span
               key={index}
@@ -32,60 +38,62 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </span>
           ))}
         </div>
-        <div className="mt-6 flex gap-4 flex-wrap">
+      </div>
+
+      <div className="mt-6 flex gap-4 flex-wrap">
+        <a
+          href={githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-500 text-white font-semibold px-4 py-2 rounded transition-all duration-300 shadow-lg"
+        >
+          <FaGithub /> View Code
+        </a>
+
+        {liveUrl && (
           <a
-            href={githubUrl}
+            href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-yellow-600 hover:bg-yellow-500 text-white font-semibold px-4 py-2 rounded transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+            className="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold px-4 py-2 rounded transition-all duration-300 shadow-lg"
           >
-            View Code
+            <FaExternalLinkAlt /> Live Demo
           </a>
-          {liveUrl && (
-            <a
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-cyan-600 hover:bg-cyan-500 text-white font-semibold px-4 py-2 rounded transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_15px_#22d3ee]"
-            >
-              Live Demo
-            </a>
-          )}
-        </div>
+        )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const Projects: React.FC = () => {
   const projects = [
     {
-      title: 'Todo List Application',
+      title: "Todo List Application",
       description:
-        'A simple and intuitive task management application to help users keep track of their daily tasks.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-      githubUrl: 'https://github.com/Soisyam/todo-app.git',
-      liveUrl: 'https://srf-internship-p6c1.vercel.app/',
+        "A simple and intuitive task management app to help users track their daily goals.",
+      technologies: ["React", "TypeScript", "Tailwind CSS"],
+      githubUrl: "https://github.com/Soisyam/todo-app.git",
+      liveUrl: "https://srf-internship-p6c1.vercel.app/",
     },
     {
-      title: 'Tic-Tac-Toe Game',
+      title: "Tic-Tac-Toe Game",
       description:
-        'A classic Tic-Tac-Toe game implemented with interactive UI, allowing two players to compete.',
-      technologies: ['React', 'JavaScript', 'CSS'],
-      githubUrl: 'https://github.com/Soisyam/TicTacToe.git',
-      liveUrl: 'https://tic-tac-toe-chi-ivory.vercel.app/',
+        "A classic Tic-Tac-Toe game with a playful UI, allowing two players to compete.",
+      technologies: ["React", "JavaScript", "CSS"],
+      githubUrl: "https://github.com/Soisyam/TicTacToe.git",
+      liveUrl: "https://tic-tac-toe-chi-ivory.vercel.app/",
     },
     {
-      title: 'Automated Messaging System',
+      title: "Automated Messaging System",
       description:
-        'A Python-based script for automating messaging tasks, demonstrating backend scripting capabilities.',
-      technologies: ['Python', 'Selenium (or similar)', 'Twilio (or similar)'],
-      githubUrl: 'https://github.com/Soisyam/automated-messaging.git',
+        "Python-based script for automating WhatsApp messaging tasks — practical backend automation.",
+      technologies: ["Python", "Selenium", "Twilio"],
+      githubUrl: "https://github.com/Soisyam/automated-messaging.git",
     },
   ];
 
   return (
-    <section id="projects" className="py-16">
+    <section id="projects" className="py-20 px-6 bg-gray-900">
       <h2 className="text-4xl font-bold text-center mb-12 text-white">My Projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
