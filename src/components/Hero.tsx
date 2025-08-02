@@ -5,15 +5,16 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black py-24 px-4"
+      className="relative min-h-screen flex flex-col items-center justify-center bg-gray-900 py-24"
     >
-      <div className="container mx-auto text-center z-10">
-        {/* Avatar with Glowing Ring + Float Animation */}
+      <div className="container mx-auto px-4 text-center">
+
+        {/* Avatar with Floating Animation */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: [0, -10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-36 h-36 rounded-full overflow-hidden border-4 border-yellow-400 shadow-xl mx-auto mb-6 ring-4 ring-yellow-500/30 ring-offset-2 ring-offset-gray-900"
+          initial={{ y: 0 }}
+          animate={{ y: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 3 }}
+          className="w-32 h-32 rounded-full overflow-hidden shadow-xl mx-auto mb-6"
         >
           <img
             src="/Ai.jpg"
@@ -22,52 +23,60 @@ const Hero: React.FC = () => {
           />
         </motion.div>
 
-        {/* Intro Text */}
+        {/* Greeting Line with Ping Effect */}
         <motion.p
-          className="text-white text-2xl md:text-3xl font-medium mb-2"
-          initial={{ opacity: 0, y: 40 }}
+          className="text-white text-3xl md:text-4xl font-semibold mb-2"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
-          👋 Hello, I'm Soyam.
+          <span className="relative inline-block">
+            Hi, I'm Soyam.
+            <span className="absolute -top-2 -right-6 animate-ping text-yellow-400 text-xl">👋</span>
+          </span>
         </motion.p>
 
+        {/* Name Line with Hover Animation */}
         <motion.h1
-          className="text-white text-5xl md:text-7xl font-extrabold mb-4"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-white text-6xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
         >
-          <span className="text-yellow-400">Soyam</span> Rai
+          <span className="text-yellow-400 hover:text-yellow-300 transition duration-300 ease-in-out cursor-pointer">
+            Soyam
+          </span>{' '}
+          Rai.
         </motion.h1>
 
+        {/* Description Text */}
         <motion.p
           className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
         >
-          A <span className="text-white font-semibold">Software Engineer</span> crafting visually stunning, accessible, and performant user experiences. Passionate about <span className="text-yellow-400 font-semibold">UI/UX</span>, <span className="text-yellow-400 font-semibold">AI</span>, and <span className="text-yellow-400 font-semibold">Machine Learning</span>.
+          A dedicated <span className="font-bold text-white">Software Engineer</span> passionate about building intuitive and visually captivating web experiences, with interests in UI/UX, AI, and Machine Learning.
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6"
+          className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           <a
             href="#projects"
-            className="bg-yellow-500 text-gray-900 font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-yellow-400 transform hover:scale-105 transition-all duration-300"
+            className="bg-yellow-500 text-gray-900 py-3 px-8 rounded-md font-semibold hover:bg-yellow-400 transition-colors duration-300 shadow-lg"
           >
-            🚀 View Projects
+            View Projects
           </a>
           <a
             href="#about"
-            className="border-2 border-white text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-gray-800 transform hover:scale-105 transition-all duration-300"
+            className="bg-transparent text-white py-3 px-8 rounded-md font-semibold hover:bg-gray-800 border-2 border-white transition-all duration-300 shadow-lg"
           >
-            📄 Learn More
+            Learn More
           </a>
         </motion.div>
       </div>
