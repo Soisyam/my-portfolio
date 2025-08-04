@@ -1,11 +1,8 @@
 import type { Config } from 'tailwindcss';
-import scrollbar from 'tailwind-scrollbar'; // ✅ ES module import
+import scrollbarHide from 'tailwind-scrollbar-hide'; // ✅
 
 const config: Config = {
-  content: [
-    './index.html',
-    './src/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -31,7 +28,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [scrollbar], // ✅ use the imported plugin
+  plugins: [scrollbarHide],
 };
 
 export default config;
