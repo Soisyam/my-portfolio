@@ -8,32 +8,34 @@ import { motion } from 'framer-motion';
 
 export default function App() {
   return (
-    <div className="min-h-screen text-gray-100 relative overflow-hidden scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-gray-800">
+    <div className="min-h-screen text-gray-100 relative overflow-hidden scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-gray-800 scroll-smooth">
       {/* Background Animation */}
       <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900 to-gray-900 bg-[length:200%_200%] animate-fade-gradient z-0"></div>
 
       <div className="relative z-10">
         <Navbar />
         <main className="container mx-auto p-8 space-y-20">
-          {/* Hero Section with Fade-Up Animation */}
-          <motion.div
+          {/* Hero Section */}
+          <motion.section
+            id="hero"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
             <Hero />
-          </motion.div>
+          </motion.section>
 
           {/* About Section */}
-          <motion.div
+          <motion.section
+            id="about"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
             <About />
-          </motion.div>
+          </motion.section>
 
           {/* Services Section */}
           <motion.section
@@ -97,24 +99,26 @@ export default function App() {
           </motion.section>
 
           {/* Projects Section */}
-          <motion.div
+          <motion.section
+            id="projects"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
             <Projects />
-          </motion.div>
+          </motion.section>
 
           {/* Contact Section */}
-          <motion.div
+          <motion.section
+            id="contact"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
             <Contact />
-          </motion.div>
+          </motion.section>
         </main>
         <Footer />
       </div>
